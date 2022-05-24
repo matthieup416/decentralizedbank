@@ -3,12 +3,17 @@ const { ethers } = require('hardhat')
 
 describe('Bank', async function () {
   it('Should deposit money in bank', async function () {
-    const Bank = await ethers.getContractFactory('Bank')
-    const bank = await Bank.deploy('My bank')
-    await bank.deployed()
-    await bank.deposit(1000000000000000000)
+    // const Token = await ethers.getContractFactory("Token");
+    // const hardhatToken = await Token.deploy();
+    // const ownerBalance = await hardhatToken.balanceOf(owner.address);
+    // expect(await hardhatToken.totalSupply()).to.equal(ownerBalance);
 
-    const posts = await blog.fetchPosts()
-    expect(await bank.checkAssets()).to.equal(1000000000000000000)
+    const Bank = await ethers.getContractFactory('Bank')
+    const bank = await Bank.deploy()
+    await bank.deployed()
+
+    await bank.deposit()
+    // const assets = await bank.fetchPosts()
+    expect(await bank.checkAssets()).to.equal(0)
   })
 })

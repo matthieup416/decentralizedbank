@@ -5,6 +5,7 @@
 pragma solidity ^0.8.0;
 
 contract Bank {
+    
 mapping(address => uint) public accounts;
 
 modifier hasFunds(uint _amount) {
